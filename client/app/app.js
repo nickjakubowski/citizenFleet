@@ -1,4 +1,4 @@
-angular.module('citizenfleet', ['ui.router','citizenfleet.home'])
+angular.module('citizenfleet', ['ui.router','citizenfleet.home', 'citizenfleet.services'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
   

@@ -1,11 +1,13 @@
-angular.module('citizenfleet.home', [])
-.controller('UserController', ['$scope', '$state', 'DataServices', function($scope, $state, DataServices) {
+angular.module('citizenfleet.home', ['citizenfleet.services'])
+.controller('UserController', ['$scope', '$state', 'DataService', function($scope, $state, DataService) {
 
   $scope.bills;
 
-  var getBills = function(query) {
+  $scope.getBills = function(query) {
+  	console.log("getBills was called");
+  	console.log(query);
   	//will only work with single word queries
-    DataServices.fetchBills(query)
+    DataService.fetchBills(query)
       .then(function(billsresult) {
         $scope.bills = billsresult;
       })
