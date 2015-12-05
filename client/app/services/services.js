@@ -9,7 +9,7 @@ angular.module('citizenfleet.services', [])
         data: obj
       })
       .then(function (resp) {
-        return resp.data;
+        return resp.data.body;
       })
     }
     return {

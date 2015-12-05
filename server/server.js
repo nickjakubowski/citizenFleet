@@ -11,13 +11,14 @@ app.post('/index', function(req, res) {
   console.log(req.body.data);
   var queryInfo = req.body.data;
   var options = {
-    url: 'https://congress.api.sunlightfoundation.com/bills/search?query=' + queryInfo,
+    url: 'https://congress.api.sunlightfoundation.com/bills/search?query=' + queryInfo + '&active=true',
     headers: {
       'X-APIKEY': '6895f8ab90944228b8c8ea226ebdcfa1' 
     }
   }
   request(options, function(err, response) {
     if (err) { console.log("YO, THERE WAS AN ERROR!: ", err) }
+    console.log(typeof response.body);
     res.send(response);
   });
 });

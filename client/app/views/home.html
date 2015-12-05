@@ -3,4 +3,12 @@
 <p>Search for: {{searchparams}}</p>
 
 <p>Here's some data:</p>
-<p>{{ bills }}</p>
+<div ng-repeat='bill in bills'>
+	<div class='bill'>
+		<p><b>ID: </b>{{ bill.bill_id }}</p>
+		<p><b>Sponsor: </b>{{ bill.sponsor }}</p>
+		<p><b>Title: </b>{{ bill.official_title }}</p>
+		<p><b>Introduced: </b>{{ bill.introduced_on }}</p>
+		<p><b>Score: </b>{{ bill.search.score }}</p>
+    <div>
+</div>
