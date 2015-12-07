@@ -5,6 +5,8 @@ var db = Massive.connectSync({db: 'massive-test'});
 var request = require('request');
 var bodyParser = require('body-parser');
 
+var db = Massive.connectSync({db: 'massive-test'});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.post('/index', function(req, res) {
@@ -13,7 +15,7 @@ app.post('/index', function(req, res) {
   var options = {
     url: 'https://congress.api.sunlightfoundation.com/bills/search?query=' + queryInfo + '&active=true',
     headers: {
-      'X-APIKEY': 'random' 
+      'X-APIKEY': '' 
     }
   }
   request(options, function(err, response) {

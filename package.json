@@ -55,6 +55,7 @@
     "method-override": "^2.3.5",
     "morgan": "^1.6.1",
     "node-inspector": "^0.12.3",
+    "pg": "^4.4.3",
     "q": "^1.4.1",
     "request": "^2.65.0",
     "require-dot-file": "^0.4.0",
