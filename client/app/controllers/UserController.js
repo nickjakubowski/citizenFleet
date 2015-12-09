@@ -7,7 +7,6 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
   	//will only work with single word queries
     DataService.fetchBills(query)
       .then(function(billsresult) {
-        console.log(JSON.parse(billsresult).results);
         $scope.bills = JSON.parse(billsresult).results;
         $scope.searchparams = null;
       })

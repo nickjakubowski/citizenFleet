@@ -11,8 +11,21 @@ angular.module('citizenfleet.services', [])
       .then(function (resp) {
         return resp.data.body;
       })
-    }
+    };
+    var signUp = function(user) {
+      return $http({
+        method: 'POST',
+        url: '/signup',
+        data: user
+      })
+      .then(function(resp) {
+        return resp.data.body;
+      }, function(err) {
+        console.log(err);
+      })
+    } 
     return {
-      fetchBills: fetchBills
+      fetchBills: fetchBills,
+      signUp: signUp
     };
   });

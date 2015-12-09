@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nickjakubowski/citizenFleet/blob/master/README.md",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "bcrypt-nodejs": "0.0.3",
     "better-console": "^0.2.4",
     "bluebird": "^3.0.5",
@@ -54,6 +55,7 @@
     "massive": "^2.0.9",
     "method-override": "^2.3.5",
     "morgan": "^1.6.1",
+    "node-gyp": "^3.2.1",
     "node-inspector": "^0.12.3",
     "pg": "^4.4.3",
     "q": "^1.4.1",

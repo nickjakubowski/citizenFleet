@@ -1,8 +1,14 @@
 angular.module('citizenfleet.signup', ['citizenfleet.services'])
-  .controller('AuthController', ['$scope', '$state', 'DataServices', function($scope, $state, DataServices) {
+  .controller('AuthController', ['$scope', '$state', 'DataService', function($scope, $state, DataService) {
     
-    $scope.user = {}
+    $scope.user = {};
     
+    $scope.signup = function(user) {
+      DataService.signUp(user)
+        .then(function() {
+          console.log('returned after promise');
+        })
+    };
     
 
   }]);
