@@ -22,20 +22,26 @@ angular.module('citizenfleet.services', [])
         data: JSON.stringify(user)
       })
       .then(function(resp) {
-        console.log(resp);
-        return resp.token;
+        console.log("This is from services: ", resp);
+        return resp;
       }, function(err) {
         console.log(err);
       })
     };
     
-    var login = function(user) {
-      return $http({
-        method:'POST',
-        url: '/index',
-        data: JSON.stringify(user);
-      })
-    }
+    // var login = function(user) {
+    //   return $http({
+    //     method:'POST',
+    //     url: '/index',
+    //     data: JSON.stringify(user)
+    //   })
+    //   .then(function(resp) {
+    //     console.log("From services: ", resp);
+    //     return JSON.parse(resp);
+    //   }, function(err) {
+    //     console.log(err);
+    //   })
+    // };
 
     return {
       fetchBills: fetchBills,

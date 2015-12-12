@@ -33,3 +33,7 @@ p {
 input:focus {
   outline:none;
 }
+
+#logout {
+  margin-bottom: 15px;
+}

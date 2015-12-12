@@ -9,5 +9,9 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
         $scope.bills = JSON.parse(billsresult).results;
         $scope.searchparams = null;
       })
+  };
+
+  $scope.logout = function() {
+  	
   }
 }]);

@@ -8,8 +8,8 @@ angular.module('citizenfleet.signup', ['citizenfleet.services'])
       $scope.user = null;
       DataService.signUp(user)
         .then(function(resp) {
-          console.log("sent back: ", resp);
-          $window.localStorage.setItem('isIt', resp);
+          console.log("sent from services: ", resp);
+          $window.localStorage.setItem('isIt', JSON.parse(resp.data));
           $state.go('index');
         })
         .catch(function(error) {

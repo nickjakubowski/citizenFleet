@@ -50,7 +50,7 @@ app.post('/signup', function(req, res) {
         console.log(req.body);
         var token = jwt.encode(req.body, secret);
         console.log("token from server: ", token);
-        res.json({token: token});
+        res.send(JSON.stringify(token));
       })
     })
   }
