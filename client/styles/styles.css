@@ -18,3 +18,18 @@ body {
 p {
   margin: 5px;
 }
+
+.input {
+  margin-bottom: 5px;
+}
+
+.add {
+  margin: 0 5px 5px 5px;
+  height: 20px;
+  background-color: #ADD8E6;
+  border-radius: 5px; 
+}
+
+input:focus {
+  outline:none;
+}

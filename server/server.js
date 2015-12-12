@@ -4,7 +4,10 @@ var request = require('request');
 var bodyParser = require('body-parser');
 var bcrypt = require('bcrypt');
 var Q = require('q');
+var jwt = require('jwt-simple');
+var secret = 'hackReactorThesisProjectJwtTokenSecret';
 var massive = require('massive');
+var helpers = require('./config/helpers');
 var connectionString = 'postgres://:@localhost/citizen'
 
 var db = massive.connectSync({connectionString: connectionString});
@@ -32,17 +35,22 @@ var finder = function(email) {
 
 var insert = function(user) {
   db.users.insert({email: user.email, firstname: user.firstname, lastname: user.lastname, password: user.password}, 
-    function(err, res){console.log(res)});
+    function(err, res){return res});
 };
 
 app.post('/signup', function(req, res) {
-  console.log("User data from post:", req.body.data);
-  if (finder(req.body.data.email) === undefined) {
-    bcrypt.gensalt(10, function(err, salt) {
+  console.log("User data from post:", req.body);
+  if (finder(req.body.email) === undefined) {
+    bcrypt.genSalt(10, function(err, salt) {
       if (err) { console.log(err); }
-      bcrypt.hash(pass, salt, function(err, hash) {
+      bcrypt.hash(req.body.password, salt, function(err, hash) {
         if (err) { console.log(err); }
-        insert(req.body.data);
+        req.body.password = hash;
+        insert(req.body);
+        console.log(req.body);
+        var token = jwt.encode(req.body, secret);
+        console.log("token from server: ", token);
+        res.json({token: token});
       })
     })
   }
