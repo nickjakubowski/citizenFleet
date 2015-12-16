@@ -20,4 +20,9 @@ angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.se
       templateUrl: 'app/views/home.html',
       controller: 'UserController'
     })
+    .state('dash', {
+      url: '/dash',
+      templateUrl: 'app/views/dash.html',
+      controller: 'UserController'
+    })
 }]);

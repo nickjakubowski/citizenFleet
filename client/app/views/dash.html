@@ -1,0 +1,13 @@
+<div>
+  <P>Your reps:</p>
+</div>
+<div ng-repeat='bill in userBills'>
+	<div class='bill'>
+		<p><b>ID: </b>{{bill.bill_id}}</p>
+		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}}</p>
+		<p><b>Title: </b>{{bill.official_title}}</p>
+		<p><b>Introduced: </b>{{bill.introduced_on}}</p>
+		<p><b>Score: </b>{{bill.search.score}}</p>
+		<button name='remove' id='remove' ng-click='remove()'>Log Out</button>
+    <div>
+</div>

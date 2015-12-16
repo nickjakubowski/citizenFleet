@@ -1,7 +1,8 @@
 angular.module('citizenfleet.home', ['citizenfleet.services'])
-.controller('UserController', ['$scope', '$state', 'DataService', function($scope, $state, DataService) {
+.controller('UserController', ['$scope', '$state', '$window', 'DataService', function($scope, $state, $window, DataService) {
 
   $scope.bills;
+  $scope.userBills;
 
   $scope.getBills = function(query) {
     DataService.fetchBills(query)
@@ -12,6 +13,9 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
   };
 
   $scope.logout = function() {
-  	
-  }
+    $window.localStorage.removeItem('isIt');
+    console.log($window.localStorage);
+    $state.go('login');
+  };
+
 }]);

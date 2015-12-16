@@ -5,11 +5,14 @@ angular.module('citizenfleet.signup', ['citizenfleet.services'])
     
     $scope.signup = function(user) {
       console.log(user);
-      $scope.user = null;
+      $scope.user = user.email;
+      console.log($scope.user);
       DataService.signUp(user)
         .then(function(resp) {
           console.log("sent from services: ", resp);
-          $window.localStorage.setItem('isIt', JSON.parse(resp.data));
+          $window.localStorage.setItem('isIt', resp);
+          $rootScope.user = resp.email;
+          console.log($rootScope.user);
           $state.go('index');
         })
         .catch(function(error) {
@@ -17,10 +20,15 @@ angular.module('citizenfleet.signup', ['citizenfleet.services'])
         })
     };
 
-    $scope.loginUser = function(user) {
-        DataService.login(user)
+    $scope.login = function(user) {
+        DataService.loginUser(user)
           .then(function(resp) {
+            console.log(resp);
+            $window.localStorage.setItem('isIt', resp);
             $state.go('index');
+          })
+          .catch(function(error) {
+            console.log(error);
           })
     }
     
