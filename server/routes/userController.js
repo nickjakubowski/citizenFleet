@@ -1,6 +1,7 @@
 var bcrypt = require('bcrypt');
 var jwt = require('jwt-simple');
 var secret = 'hackReactorThesisProjectJwtTokenSecret';
+var request = require('request');
 var massive = require('massive');
 var connectionString = 'postgres://:@localhost/citizen'
 var db = massive.connectSync({connectionString: connectionString});
