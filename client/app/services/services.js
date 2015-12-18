@@ -1,20 +1,6 @@
 angular.module('citizenfleet.services', [])
   .factory('DataService', function($http, $location) {
 
-    //Sends the input parameters to the server in order to generate
-    //a query request to the Sunlight Foundation API
-    var fetchBills = function(query) {
-      var obj = {data: query}
-      return $http({
-        method: 'POST',
-        url: '/index',
-        data: obj
-      })
-      .then(function (resp) {
-        return resp.data.body;
-      })
-    };
-
     var signUp = function(user) {
       return $http({
         method: 'POST',
@@ -42,6 +28,22 @@ angular.module('citizenfleet.services', [])
         console.log(err);
       })
     };
+
+    //Sends the input parameters to the server in order to generate
+    //a query request to the Sunlight Foundation API
+    var fetchBills = function(query) {
+      var obj = {data: query}
+      return $http({
+        method: 'POST',
+        url: '/index',
+        data: obj
+      })
+      .then(function (resp) {
+        return resp.data.body;
+      })
+    };
+
+    
 
     return {
       fetchBills: fetchBills,
