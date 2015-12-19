@@ -13,14 +13,14 @@ var insert = function(user) {
   };
 
 module.exports = {
-  
+  //requires string to send query to API
   findBills: function(req, res) {
   console.log("SFAPI was queried with: ",req.body.data);
   var queryInfo = req.body.data;
   var options = {
     url: 'https://congress.api.sunlightfoundation.com/bills/search?query=' + queryInfo + '&active=true',
     headers: {
-      'X-APIKEY': '' 
+      'X-APIKEY': '6895f8ab90944228b8c8ea226ebdcfa1' 
     }
   }
   request(options, function(err, response) {

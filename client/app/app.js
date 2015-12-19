@@ -1,4 +1,4 @@
-angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.services','citizenfleet.signup','ngMessages'])
+angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.services','citizenfleet.signup', 'citizenfleet.dash','ngMessages'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
   
@@ -23,6 +23,6 @@ angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.se
     .state('dash', {
       url: '/dash',
       templateUrl: 'app/views/dash.html',
-      controller: 'UserController'
+      controller: 'DashController'
     })
 }]);

@@ -1,21 +1,33 @@
 angular.module('citizenfleet.home', ['citizenfleet.services'])
-.controller('UserController', ['$scope', '$state', '$window', 'DataService', function($scope, $state, $window, DataService) {
+.controller('UserController', ['$scope', '$state', '$window', '$rootScope', 'DataService', function($scope, $state, $window, $rootScope, DataService) {
 
   $scope.bills;
-  $scope.userBills;
+  $rootScope.userBills = [];
 
   $scope.getBills = function(query) {
     DataService.fetchBills(query)
       .then(function(billsresult) {
         $scope.bills = JSON.parse(billsresult).results;
+        console.log($scope.bills);
         $scope.searchparams = null;
       })
   };
 
   $scope.logout = function() {
-    $window.localStorage.removeItem('isIt');
-    console.log($window.localStorage);
+    DataService.logout(); 
     $state.go('login');
+  };
+
+  $scope.add = function(elem) {
+    //refactor
+    $scope.userBills.push(elem);
+    DataService.addBill(elem);
+  };
+
+  $scope.goToDash = function() {
+    $state.go('dash');
+    console.log($scope.userBills[0].bill_id);
+    console.log($scope.userBills);
   };
 
 }]);

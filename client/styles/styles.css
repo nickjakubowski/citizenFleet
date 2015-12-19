@@ -23,11 +23,19 @@ p {
   margin-bottom: 5px;
 }
 
-.add {
+.bill-button {
   margin: 0 5px 5px 5px;
   height: 20px;
   background-color: #ADD8E6;
   border-radius: 5px; 
+}
+
+button:focus {
+  outline:none; 
+}
+
+.add:focus {
+  outline:none; 
 }
 
 input:focus {

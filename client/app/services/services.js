@@ -1,5 +1,5 @@
 angular.module('citizenfleet.services', [])
-  .factory('DataService', function($http, $location) {
+  .factory('DataService', function($http, $location, $window) {
 
     var signUp = function(user) {
       return $http({
@@ -42,12 +42,28 @@ angular.module('citizenfleet.services', [])
         return resp.data.body;
       })
     };
-
     
+    var logout = function() {
+      $window.localStorage.removeItem('isIt');
+      console.log($window.localStorage); 
+    };
+
+    var trackBill = function(bill) {
+      //send bill object to server
+      return $http({
+        method: 'POST',
+        url: '/index/add',
+        data: JSON.stringify(bill);
+      })
+      .then(function(resp) {
+        return resp.data.body;
+      })
+    };
 
     return {
       fetchBills: fetchBills,
       signUp: signUp,
-      loginUser: loginUser
+      loginUser: loginUser,
+      logout: logout
     };
   });

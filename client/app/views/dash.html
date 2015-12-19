@@ -1,7 +1,8 @@
-<button name='logout' id='logout' ng-click='logout()'>Logout</button>
-<div>
+<button name='logout' id='logout' ng-click='logout()'>Logout</button><button name='dashboard' id='dash' ng-click='goToSearch()'>Go to Search Page</button>
+<!-- <div>
   <P>Your reps:</p>
-</div>
+</div> -->
+<p>Currently Tracked Bills:</p>
 <div ng-repeat='bill in userBills'>
 	<div class='bill'>
 		<p><b>ID: </b>{{bill.bill_id}}</p>
@@ -9,6 +10,6 @@
 		<p><b>Title: </b>{{bill.official_title}}</p>
 		<p><b>Introduced: </b>{{bill.introduced_on}}</p>
 		<p><b>Score: </b>{{bill.search.score}}</p>
-		<button name='remove' id='remove' ng-click='remove()'>Remove</button>
-    <div>
+		<button name='remove' class='bill-button' id='remove' ng-click='remove()'>Remove</button>
+    </div>
 </div>

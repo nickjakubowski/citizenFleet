@@ -1,9 +1,10 @@
-<button name='logout' id='logout' ng-click='logout()'>Log Out</button>
+<button name='logout' id='logout' ng-click='logout()'>Log Out</button><button name='dashboard' id='dash' ng-click='goToDash()'>Go to Dashboard</button>
+
 <form><input type='text' ng-model='searchparams'/><input type='submit' ng-click='getBills(searchparams)'/></form>
 
 <p>Search for: {{searchparams}}</p>
 
-<p>Here's some data:</p>
+<p>Results:</p>
 <div ng-repeat='bill in bills'>
 	<div class='bill'>
 		<p><b>ID: </b>{{bill.bill_id}}</p>
@@ -11,6 +12,6 @@
 		<p><b>Title: </b>{{bill.official_title}}</p>
 		<p><b>Introduced: </b>{{bill.introduced_on}}</p>
 		<p><b>Score: </b>{{bill.search.score}}</p>
-		<input type='submit' class='add' ng-click='add()' value='Add'/>
+		<button class='bill-button' ng-click='add(bill)'/>Add</button>
     <div>
 </div>
