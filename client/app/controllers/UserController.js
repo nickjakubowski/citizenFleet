@@ -20,8 +20,9 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
 
   $scope.add = function(elem) {
     //refactor
+    // console.log(elem);
     $scope.userBills.push(elem);
-    DataService.addBill(elem);
+    DataService.trackBill(elem);
   };
 
   $scope.goToDash = function() {

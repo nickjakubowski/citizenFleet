@@ -30,7 +30,17 @@ module.exports = {
   },
 
   addBill: function(req, res) {
-    
+    db.bills.findOne({bill_id: req.body.bill_id}, function(err, bill) {
+      if (!bill) {
+        db.bills.insert({bill_id: req.body.bill_id, sponsor: req.body.sponsor,
+          title: req.body.official_title, introduced: req.body.introduced_on,
+          score: req.body.search.score, active: req.body.active}, function(err, bill) {
+            if (err) {console.log(err);}
+            console.log(bill);
+            res.status(201).send(JSON.stringify(bill));
+          })
+      }
+    })
   },
 
   signup: function(req, res) {

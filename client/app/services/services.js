@@ -53,7 +53,7 @@ angular.module('citizenfleet.services', [])
       return $http({
         method: 'POST',
         url: '/index/add',
-        data: JSON.stringify(bill);
+        data: JSON.stringify(bill)
       })
       .then(function(resp) {
         return resp.data.body;
@@ -62,6 +62,7 @@ angular.module('citizenfleet.services', [])
 
     return {
       fetchBills: fetchBills,
+      trackBill: trackBill,
       signUp: signUp,
       loginUser: loginUser,
       logout: logout
