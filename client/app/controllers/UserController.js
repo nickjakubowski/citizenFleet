@@ -21,8 +21,9 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
   $scope.add = function(elem) {
     //refactor
     // console.log(elem);
+    access = $window.localStorage['isIt'];
     $scope.userBills.push(elem);
-    DataService.trackBill(elem);
+    DataService.trackBill(elem, access);
   };
 
   $scope.goToDash = function() {

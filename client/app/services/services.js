@@ -48,11 +48,12 @@ angular.module('citizenfleet.services', [])
       console.log($window.localStorage); 
     };
 
-    var trackBill = function(bill) {
+    var trackBill = function(bill, access) {
       //send bill object to server
       return $http({
         method: 'POST',
         url: '/index/add',
+        headers: {'x-access-token': access},
         data: JSON.stringify(bill)
       })
       .then(function(resp) {

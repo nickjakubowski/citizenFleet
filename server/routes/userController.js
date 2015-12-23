@@ -1,5 +1,5 @@
 var bcrypt = require('bcrypt');
-var jwt = require('jwt-simple');
+var jwt = require('jsonwebtoken');
 var secret = 'hackReactorThesisProjectJwtTokenSecret';
 var request = require('request');
 var bodyParser = require('body-parser');
@@ -30,17 +30,26 @@ module.exports = {
   },
 
   addBill: function(req, res) {
-    db.bills.findOne({bill_id: req.body.bill_id}, function(err, bill) {
-      if (!bill) {
-        db.bills.insert({bill_id: req.body.bill_id, sponsor: req.body.sponsor,
-          title: req.body.official_title, introduced: req.body.introduced_on,
-          score: req.body.search.score, active: req.body.active}, function(err, bill) {
-            if (err) {console.log(err);}
-            console.log(bill);
-            res.status(201).send(JSON.stringify(bill));
-          })
-      }
+    var token = req.headers['x-access-token'];
+    jwt.verify(token, secret, function(err, decoded) {
+    if (err) {console.log("jwt error:", err)}
+    console.log("this is token: ", decoded);
+    db.users.findOne({email: decoded.email}, function(err, user) {
+      console.log(user);
+      db.bills.insert({bill_id: req.body.bill_id, sponsor: req.body.sponsor,
+        title: req.body.official_title, introduced: req.body.introduced_on,
+        score: req.body.search.score, active: req.body.active}, function(err, bill) {
+          if (err) {console.log(err);}
+          // console.log(bill);
+          // res.sendStatus(201);
+      });
+      console.log(req.body.bill_id)
+      db.user_bills.insert({user_id: user.id, bill_id: req.body.bill_id}, function(err, bill) {
+        if (err) {console.log(err)}
+        res.status(201).send(JSON.stringify(bill));
+      })
     })
+  })
   },
 
   signup: function(req, res) {
@@ -58,7 +67,7 @@ module.exports = {
         insert(req.body);
         console.log(user == false);
         console.log("after hashing: ", req.body);
-        var token = jwt.encode(req.body, secret);
+        var token = jwt.sign(req.body, secret);
         console.log("token from server: ", token);
         res.status(201).send(JSON.stringify(token));
       })
@@ -73,7 +82,7 @@ module.exports = {
     bcrypt.compare(req.body.password, user.password, function(err, hash) {
       console.log("password match: ", hash);
       if (hash) {
-        var token = jwt.encode(req.body, secret);
+        var token = jwt.sign(req.body, secret);
         res.status(200).send(JSON.stringify(token));
       }
     }) 
