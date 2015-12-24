@@ -22,14 +22,11 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
     //refactor
     // console.log(elem);
     access = $window.localStorage['isIt'];
-    $scope.userBills.push(elem);
     DataService.trackBill(elem, access);
   };
 
   $scope.goToDash = function() {
     $state.go('dash');
-    console.log($scope.userBills[0].bill_id);
-    console.log($scope.userBills);
   };
 
 }]);

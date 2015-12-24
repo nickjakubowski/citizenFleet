@@ -61,9 +61,21 @@ angular.module('citizenfleet.services', [])
       })
     };
 
+    var showTrackedBills = function(user) {
+      return $http({
+        method: 'GET',
+        url: 'dash',
+        headers: {'x-access-token': user},
+      })
+      .then(function(resp) {
+        return resp.data.body;
+      })
+    };
+
     return {
       fetchBills: fetchBills,
       trackBill: trackBill,
+      showTrackedBills: showTrackedBills,
       signUp: signUp,
       loginUser: loginUser,
       logout: logout

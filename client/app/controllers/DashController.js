@@ -1,11 +1,16 @@
 angular.module('citizenfleet.dash', ['citizenfleet.services'])
   .controller('DashController', ['$scope', '$state', '$window', '$rootScope', 'DataService', function($scope, $state, $window, $rootScope, DataService) {
     
-    $scope.userBills = $rootScope.userBills;
+    $scope.userBills;
     
     $scope.goToSearch = function() {
-    $state.go('index');
+      $state.go('index');
     };
+
+    $scope.loadBills = function() {
+      user = $window.localStorage['isIt'];
+      DataService.showTrackedBills(user);
+    }
     
     //this is also in user controller can be
     //refactored for DRY
@@ -13,5 +18,7 @@ angular.module('citizenfleet.dash', ['citizenfleet.services'])
       DataService.logout(); 
       $state.go('login');
     };
+
+    $scope.loadBills();
 
   }]);
