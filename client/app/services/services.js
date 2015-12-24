@@ -68,7 +68,8 @@ angular.module('citizenfleet.services', [])
         headers: {'x-access-token': user},
       })
       .then(function(resp) {
-        return resp.data.body;
+        console.log(resp.data)
+        return resp.data;
       })
     };
 

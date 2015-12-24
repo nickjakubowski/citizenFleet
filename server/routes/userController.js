@@ -52,6 +52,19 @@ module.exports = {
   })
   },
 
+  getBills: function(req, res) {
+    var token = req.headers['x-access-token'];
+    jwt.verify(token, secret, function(err, decoded) {
+      db.users.findOne({email: decoded.email}, function(err, user) {
+        db.run("select * from bills inner join user_bills on user_bills.bill_id = bills.bill_id where user_id = $1",[user.id], function(err, results) {
+          if (err) {console.log(err);}
+          console.log("db query results:", results);
+          res.status(200).send(JSON.stringify(results));
+        })
+      })
+    })
+  },
+
   signup: function(req, res) {
    console.log("User data from post:", req.body);
     db.users.findOne({email: req.body.email}, function(err, user) {

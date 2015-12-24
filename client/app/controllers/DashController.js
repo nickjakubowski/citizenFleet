@@ -9,7 +9,11 @@ angular.module('citizenfleet.dash', ['citizenfleet.services'])
 
     $scope.loadBills = function() {
       user = $window.localStorage['isIt'];
-      DataService.showTrackedBills(user);
+      DataService.showTrackedBills(user)
+      .then(function(bills) {
+        console.log(bills);
+        $scope.userBills = bills;
+      })
     }
     
     //this is also in user controller can be
