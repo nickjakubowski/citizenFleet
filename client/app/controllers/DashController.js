@@ -17,7 +17,11 @@ angular.module('citizenfleet.dash', ['citizenfleet.services'])
     };
 
     $scope.remove = function() {
-      
+      console.log(this.$index);
+      console.log(this.bill.bill_id);
+      var billId = this.bill.bill_id;
+      DataService.removeBill(user, billId);
+      $scope.userBills.splice(this.$index, 1); 
     };
     
     //this is also in user controller can be

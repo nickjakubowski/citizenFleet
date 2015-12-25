@@ -40,8 +40,6 @@ module.exports = {
         title: req.body.official_title, introduced: req.body.introduced_on,
         score: req.body.search.score, active: req.body.active}, function(err, bill) {
           if (err) {console.log(err);}
-          // console.log(bill);
-          // res.sendStatus(201);
       });
       console.log(req.body.bill_id)
       db.user_bills.insert({user_id: user.id, bill_id: req.body.bill_id}, function(err, bill) {
@@ -60,6 +58,20 @@ module.exports = {
           if (err) {console.log(err);}
           console.log("db query results:", results);
           res.status(200).send(JSON.stringify(results));
+        })
+      })
+    })
+  },
+
+  removeBill: function(req, res) {
+    console.log("removeBill console.log", req.body);
+    var token = req.headers['x-access-token'];
+    jwt.verify(token, secret, function(err, decoded) {
+      db.users.findOne({email: decoded.email}, function(err, user) {
+        db.user_bills.destroy({user_id: user.id, bill_id: req.body.billId}, function(err, results) {
+          if (err) {console.log(err);}
+          console.log("db query results:", results);
+          res.sendStatus(204);
         })
       })
     })

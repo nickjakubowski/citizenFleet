@@ -28,6 +28,8 @@ module.exports = function (app) {
 
   require('../routes/userRoutes.js')(app);
 
+  console.log("here i am!");
+
   app.use(function(req, res, next) {
     console.log(req.headers);
     token = req.headers['x-access-token'];

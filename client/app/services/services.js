@@ -64,7 +64,7 @@ angular.module('citizenfleet.services', [])
     var showTrackedBills = function(user) {
       return $http({
         method: 'GET',
-        url: 'dash',
+        url: '/dash',
         headers: {'x-access-token': user},
       })
       .then(function(resp) {
@@ -73,10 +73,20 @@ angular.module('citizenfleet.services', [])
       })
     };
 
+    var removeBill = function(user, billId) {
+      return $http({
+        method: 'PUT',
+        url: '/dash/remove',
+        headers: {'x-access-token': user},
+        data: JSON.stringify({billId: billId})
+      })
+    }
+
     return {
       fetchBills: fetchBills,
       trackBill: trackBill,
       showTrackedBills: showTrackedBills,
+      removeBill: removeBill,
       signUp: signUp,
       loginUser: loginUser,
       logout: logout
