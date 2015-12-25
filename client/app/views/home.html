@@ -5,7 +5,7 @@
 <p>Search for: {{searchparams}}</p>
 
 <p>Results:</p>
-<div ng-repeat='bill in bills'>
+<div ng-repeat='bill in bills|orderBy:"introduced_on":true'>
 	<div class='bill'>
 		<p><b>ID: </b>{{bill.bill_id}}</p>
 		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}}</p>

@@ -3,7 +3,7 @@
   <P>Your reps:</p>
 </div> -->
 <p>Currently Tracked Bills:</p>
-<div ng-repeat='bill in userBills'>
+<div ng-repeat='bill in userBills track by $index'>
 	<div class='bill'>
 		<p><b>ID: </b>{{bill.bill_id}}</p>
 		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}}</p>
