@@ -1,8 +1,8 @@
 var express = require('express');
-var redis = require('redis');
-var client = redis.createClient();
-var session = require('express-session');
-var RedisStore = require('connect-redis')(session);
+// var redis = require('redis');
+// var client = redis.createClient();
+// var session = require('express-session');
+// var RedisStore = require('connect-redis')(session);
 var port = process.env.PORT || 3000;
 var app = express();
 var http = require('http');
