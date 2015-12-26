@@ -12,9 +12,9 @@ var server = http.createServer(app);
 
 require('./config/middleware.js')(app);
 
-client.on('connect', function() {
-  console.log('connected');
-});
+// client.on('connect', function() {
+//   console.log('connected');
+// });
 
 server.listen(port);
 console.log("listening on " + port);

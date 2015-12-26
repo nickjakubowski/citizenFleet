@@ -4,8 +4,8 @@ var helpers = require('./helpers.js'); // our custom middleware
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var secret = 'hackReactorThesisProjectJwtTokenSecret';
-var session = require('express-session');
-var RedisStore = require('connect-redis')(session);
+// var session = require('express-session');
+// var RedisStore = require('connect-redis')(session);
 
 module.exports = function (app) {
   // var userRouter = express.Router();
@@ -14,10 +14,10 @@ module.exports = function (app) {
   app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
-  app.use(session({
-    store: new RedisStore(),
-    secret: 'codemonkey'
-  }))
+  // app.use(session({
+  //   store: new RedisStore(),
+  //   secret: 'codemonkey'
+  // }))
   app.use(express.static(__dirname + '/../../client'));
 
   // app.use('/users', userRouter);
