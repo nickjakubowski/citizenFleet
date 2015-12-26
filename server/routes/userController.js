@@ -4,7 +4,7 @@ var secret = 'hackReactorThesisProjectJwtTokenSecret';
 var request = require('request');
 var bodyParser = require('body-parser');
 var massive = require('massive');
-var connectionString = 'postgres://:@localhost/citizen'
+var connectionString = process.env.DATABASE_URL || ('postgres://:@localhost/citizen');
 var db = massive.connectSync({connectionString: connectionString});
 
 var insert = function(user) {
