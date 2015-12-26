@@ -8,7 +8,6 @@ angular.module('citizenfleet.services', [])
         data: JSON.stringify(user)
       })
       .then(function(resp) {
-        console.log("This is from services: ", resp);
         return JSON.parse(resp.data);
       }, function(err) {
         console.log(err);
@@ -22,7 +21,6 @@ angular.module('citizenfleet.services', [])
         data: JSON.stringify(user)
       })
       .then(function(resp) {
-        console.log("From services: ", resp);
         return JSON.parse(resp.data);
       }, function(err) {
         console.log(err);
@@ -68,7 +66,6 @@ angular.module('citizenfleet.services', [])
         headers: {'x-access-token': user},
       })
       .then(function(resp) {
-        console.log(resp.data)
         return resp.data;
       })
     };

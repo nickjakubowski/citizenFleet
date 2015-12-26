@@ -33,7 +33,6 @@ module.exports = {
     var token = req.headers['x-access-token'];
     jwt.verify(token, secret, function(err, decoded) {
     if (err) {console.log("jwt error:", err)}
-    console.log("this is token: ", decoded);
     db.users.findOne({email: decoded.email}, function(err, user) {
       console.log(user);
       db.bills.insert({bill_id: req.body.bill_id, sponsor: req.body.sponsor,
@@ -41,7 +40,6 @@ module.exports = {
         score: req.body.search.score, active: req.body.active}, function(err, bill) {
           if (err) {console.log(err);}
       });
-      console.log(req.body.bill_id)
       db.user_bills.insert({user_id: user.id, bill_id: req.body.bill_id}, function(err, bill) {
         if (err) {console.log(err)}
         res.status(201).send(JSON.stringify(bill));
@@ -56,7 +54,6 @@ module.exports = {
       db.users.findOne({email: decoded.email}, function(err, user) {
         db.run("select * from bills inner join user_bills on user_bills.bill_id = bills.bill_id where user_id = $1",[user.id], function(err, results) {
           if (err) {console.log(err);}
-          console.log("db query results:", results);
           res.status(200).send(JSON.stringify(results));
         })
       })
@@ -70,7 +67,6 @@ module.exports = {
       db.users.findOne({email: decoded.email}, function(err, user) {
         db.user_bills.destroy({user_id: user.id, bill_id: req.body.billId}, function(err, results) {
           if (err) {console.log(err);}
-          console.log("db query results:", results);
           res.sendStatus(204);
         })
       })
@@ -93,7 +89,6 @@ module.exports = {
         console.log(user == false);
         console.log("after hashing: ", req.body);
         var token = jwt.sign(req.body, secret);
-        console.log("token from server: ", token);
         res.status(201).send(JSON.stringify(token));
       })
     })
@@ -105,7 +100,6 @@ module.exports = {
     console.log(req.body);
     db.users.findOne({email: req.body.email}, function(err, user) {
     bcrypt.compare(req.body.password, user.password, function(err, hash) {
-      console.log("password match: ", hash);
       if (hash) {
         var token = jwt.sign(req.body, secret);
         res.status(200).send(JSON.stringify(token));

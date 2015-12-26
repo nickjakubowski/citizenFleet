@@ -1,17 +1,17 @@
-<button name='logout' id='logout' ng-click='logout()'>Log Out</button><button name='dashboard' id='dash' ng-click='goToDash()'>Go to Dashboard</button>
+<button name='logout' id='logout' class='ui button' ng-click='logout()'>Log Out</button><button name='dashboard' id='dash' class='ui button' ng-click='goToDash()'>Go to Dashboard</button><h3>Search for topics of interest</h3>
 
-<form><input type='text' ng-model='searchparams'/><input type='submit' ng-click='getBills(searchparams)'/></form>
+<form class='ui input'><input type='text' ng-model='searchparams'/><input type='submit' class='ui button'  ng-click='getBills(searchparams)'/></form>
 
 <p>Search for: {{searchparams}}</p>
 
 <p>Results:</p>
 <div ng-repeat='bill in bills|orderBy:"introduced_on":true'>
-	<div class='bill'>
+	<div class='bill ui raised segment'>
 		<p><b>ID: </b>{{bill.bill_id}}</p>
 		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}}</p>
 		<p><b>Title: </b>{{bill.official_title}}</p>
 		<p><b>Introduced: </b>{{bill.introduced_on}}</p>
 		<p><b>Score: </b>{{bill.search.score}}</p>
-		<button class='bill-button' ng-click='add(bill)'/>Add</button>
+		<button class='bill-button ui button' ng-click='add(bill)'/>Add</button>
     <div>
 </div>

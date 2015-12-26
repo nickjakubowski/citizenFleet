@@ -11,14 +11,11 @@ angular.module('citizenfleet.dash', ['citizenfleet.services'])
     $scope.loadBills = function() {
       DataService.showTrackedBills(user)
       .then(function(bills) {
-        console.log(bills);
         $scope.userBills = bills;
       })
     };
 
     $scope.remove = function() {
-      console.log(this.$index);
-      console.log(this.bill.bill_id);
       var billId = this.bill.bill_id;
       DataService.removeBill(user, billId);
       $scope.userBills.splice(this.$index, 1); 

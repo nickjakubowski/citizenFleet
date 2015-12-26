@@ -1,9 +1,10 @@
 <div class='login'>
+<button name='signup' id='signup' class='ui button' ng-click='goToSignup()'>Sign Up</button>
   <h2>Welcome To CitizenFleet</h2>
   <h3>Login</h3>
-  <form>
+  <form class='ui input'>
     <input type='text' class='input' ng-model='user.email' placeholder='Email'/><br>
     <input type='password' value='password' class='input' ng-model='user.password' placeholder='Password'/><br>
-    <input type='submit' ng-click='login(user)'/>
+    <input type='submit' class='ui button' ng-click='login(user)'/>
   </form>
 </div>

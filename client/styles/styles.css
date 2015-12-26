@@ -1,11 +1,16 @@
+div {
+  padding: 5px;
+}
+
 h1 {
   background-color: #ADD8E6;
   color: white;
-  padding-left: 10px;
+  margin: 10px;
 }
 
 body {
   padding: 0 10px 10px 10px;
+  margin: 5px;
 }
 
 .bill {
@@ -21,13 +26,7 @@ p {
 
 .input {
   margin-bottom: 5px;
-}
-
-.bill-button {
-  margin: 0 5px 5px 5px;
-  height: 20px;
-  background-color: #ADD8E6;
-  border-radius: 5px; 
+  margin-right: 5px;
 }
 
 button:focus {
@@ -44,4 +43,13 @@ input:focus {
 
 #logout {
   margin-bottom: 15px;
+  float: right;
+}
+
+#login {
+  float: right;
+}
+
+#signup {
+  float: right;
 }

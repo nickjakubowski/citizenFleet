@@ -2,9 +2,17 @@ angular.module('citizenfleet.signup', ['citizenfleet.services'])
   .controller('AuthController', ['$scope', '$state', '$window', '$rootScope', 'DataService', function($scope, $state, $window, $rootScope, DataService) {
     
     $scope.user = {};
+
+    $scope.goToLogin = function() {
+      $state.go('login');
+    };
+
+    $scope.goToSignup = function() {
+      console.log("signup clicked");
+      $state.go('signup');
+    };
     
     $scope.signup = function(user) {
-      console.log(user);
       $scope.user = user.email;
       console.log($scope.user);
       DataService.signUp(user)
@@ -25,7 +33,6 @@ angular.module('citizenfleet.signup', ['citizenfleet.services'])
     $scope.login = function(user) {
         DataService.loginUser(user)
           .then(function(resp) {
-            console.log(resp);
             $window.localStorage.setItem('isIt', resp);
             $state.go('index');
           })
