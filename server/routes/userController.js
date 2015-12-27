@@ -31,6 +31,7 @@ module.exports = {
 
   addBill: function(req, res) {
     var token = req.headers['x-access-token'];
+    console.log('addBill request body:', req.body);
     jwt.verify(token, secret, function(err, decoded) {
     if (err) {console.log("jwt error:", err)}
     db.users.findOne({email: decoded.email}, function(err, user) {
