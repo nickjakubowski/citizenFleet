@@ -1,8 +1,6 @@
 angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.services','citizenfleet.signup', 'citizenfleet.dash','ngMessages'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
-  
-  $urlRouterProvider.otherwise('/signup');
 
   $stateProvider
     .state('signup', {
@@ -25,4 +23,8 @@ angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.se
       templateUrl: 'app/views/dash.html',
       controller: 'DashController'
     })
+
+    //sends user to login page by default and on get request to root
+  $urlRouterProvider.otherwise('index');
+
 }]);

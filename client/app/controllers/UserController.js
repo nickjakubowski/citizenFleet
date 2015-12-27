@@ -22,6 +22,7 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
     //refactor
     // console.log(elem);
     access = $window.localStorage['isIt'];
+    $('#' + this.$index).text('Tracking');
     DataService.trackBill(elem, access);
   };
 

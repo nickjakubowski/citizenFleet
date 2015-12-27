@@ -28,14 +28,12 @@ module.exports = function (app) {
 
   require('../routes/userRoutes.js')(app);
 
-  console.log("here i am!");
-
   app.use(function(req, res, next) {
     console.log(req.headers);
     token = req.headers['x-access-token'];
     if (!token) {
       console.log("access denied");
-      res.sendStatus(401);
+      res.status(401);
     } else {
       jwt.verify(token, secret, function(err, decoded) {
         if (err) {

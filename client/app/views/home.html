@@ -12,6 +12,6 @@
 		<p><b>Title: </b>{{bill.official_title}}</p>
 		<p><b>Introduced: </b>{{bill.introduced_on}}</p>
 		<p><b>Score: </b>{{bill.search.score}}</p>
-		<button class='bill-button ui button' ng-click='add(bill)'/>Add</button>
+		<button class='bill-button ui button' id='{{$index}}' ng-click='add(bill)'/>Track Bill</button>
     <div>
 </div>
