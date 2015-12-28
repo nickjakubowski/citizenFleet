@@ -10,6 +10,7 @@
 		<p><b>Title: </b>{{bill.title}}</p>
 		<p><b>Introduced: </b>{{(bill.introduced).slice(0,10)}}</p>
 		<p><b>Score: </b>{{bill.score}}</p>
+		<p><b>Full Bill: </b><a href='{{bill.full_bill_href}}' target='_blank'>{{bill.full_bill_href}}</a></p>
 		<button name='remove' class='ui button bill-button' id='remove' ng-click='remove()'>Remove</button>
     </div>
 </div>

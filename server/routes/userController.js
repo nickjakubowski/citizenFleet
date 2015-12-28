@@ -38,7 +38,7 @@ module.exports = {
       console.log(user);
       db.bills.insert({bill_id: req.body.bill_id, sponsor: req.body.sponsor,
         title: req.body.official_title, introduced: req.body.introduced_on,
-        score: req.body.search.score, active: req.body.active}, function(err, bill) {
+        score: req.body.search.score, active: req.body.active, full_bill_href: req.body.last_version.urls.html}, function(err, bill) {
           if (err) {console.log(err);}
       });
       db.user_bills.insert({user_id: user.id, bill_id: req.body.bill_id}, function(err, bill) {
