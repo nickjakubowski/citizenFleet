@@ -33,7 +33,7 @@ module.exports = {
   var options = {
     url: 'https://congress.api.sunlightfoundation.com/bills/search?query=' + queryInfo + '&active=true',
     headers: {
-      'X-APIKEY': 'process.env.SUNLIGHT_KEY'  
+      'X-APIKEY': process.env.SUNLIGHT_KEY  
     }
   }
   request(options, function(err, response) {
