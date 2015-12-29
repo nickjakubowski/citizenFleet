@@ -1,30 +1,25 @@
-angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.services','citizenfleet.signup', 'citizenfleet.dash','ngMessages'])
+//alternative routing
 
-.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
+// angular.module('citizenfleet')
+// .run(runBlock);
 
-  $stateProvider
-    .state('signup', {
-      url: '/signup',
-      templateUrl: 'app/views/signup.html',
-      controller: 'AuthController'
-    })
-    .state('login', {
-      url: '/login',
-      templateUrl: 'app/views/login.html',
-      controller: 'AuthController'
-    })
-    .state('index', {
-      url: '/index',
-      templateUrl: 'app/views/home.html',
-      controller: 'UserController'
-    })
-    .state('dash', {
-      url: '/dash',
-      templateUrl: 'app/views/dash.html',
-      controller: 'DashController'
-    })
+// runBlock.$inject = ['$rootScope', '$state', '$window'];
 
-    //sends user to login page by default and on get request to root
-  $urlRouterProvider.otherwise('index');
+// function runBlock($rootScope, $state, $window) {
 
-}]);
+//   var token = localStorage['isIt'];
+
+//   if (!token) {
+//   	$state.go('login');
+//   }
+
+//   $rootScope.$on('$stateChangeStart', 
+//   function(evt, toState, toParams, fromState, fromParams) {
+//   	if (!token && fromState !== 'login') {
+//      $state.go('login');
+//     }
+//   })
+// };
+
+
+

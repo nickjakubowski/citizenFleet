@@ -1,5 +1,18 @@
 angular.module('citizenfleet.services', [])
   .factory('DataService', function($http, $location, $window) {
+     
+    //remove this after .run and $routeChange refactor
+    var verify = function() {
+      return $http({
+        method: 'GET',
+        url: '/',
+        headers: {'x-access-token': access}
+      })
+      .then(function(resp) {
+        console.log("response in service:", resp.status);
+        return JSON.parse(resp.status);
+      })
+    }
 
     var signUp = function(user) {
       return $http({
@@ -80,6 +93,7 @@ angular.module('citizenfleet.services', [])
     }
 
     return {
+      verify: verify,
       fetchBills: fetchBills,
       trackBill: trackBill,
       showTrackedBills: showTrackedBills,

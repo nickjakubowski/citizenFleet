@@ -2,6 +2,21 @@ angular.module('citizenfleet.dash', ['citizenfleet.services'])
   .controller('DashController', ['$scope', '$state', '$window', '$rootScope', 'DataService', function($scope, $state, $window, $rootScope, DataService) {
     
     $scope.userBills;
+    
+    $scope.verify = function() {
+     access = $window.localStorage['isIt'];
+     if (access === undefined) {
+       $state.go('login');
+     } else {
+      DataService.verify()
+        .then(function(resp) {
+          if (resp !== 200) {
+            $state.go('login');
+          }
+        })
+      }
+    };
+
     var user = $window.localStorage['isIt'];
     
     $scope.goToSearch = function() {
@@ -27,7 +42,9 @@ angular.module('citizenfleet.dash', ['citizenfleet.services'])
       DataService.logout(); 
       $state.go('login');
     };
-
+    
     $scope.loadBills();
+    $scope.verify();
+
 
   }]);

@@ -3,12 +3,29 @@ angular.module('citizenfleet.signup', ['citizenfleet.services'])
     
     $scope.user = {};
 
+    $scope.verify = function() {
+     access = $window.localStorage['isIt'];
+     if ($state.current.name === 'login' && !access) {
+      return;
+     }else if (!access) {
+       $state.go('login');
+     }else {
+      DataService.verify()
+        .then(function(resp) {
+          if (resp !== 200) {
+            $state.go('login');
+          } else {
+            $state.go('dash');
+          }
+        })
+      }
+    };
+
     $scope.goToLogin = function() {
       $state.go('login');
     };
 
     $scope.goToSignup = function() {
-      console.log("signup clicked");
       $state.go('signup');
     };
     
@@ -39,8 +56,9 @@ angular.module('citizenfleet.signup', ['citizenfleet.services'])
           .catch(function(error) {
             console.log(error);
           })
-    }
+    };
     
+    $scope.verify()
 
   }]);
 
