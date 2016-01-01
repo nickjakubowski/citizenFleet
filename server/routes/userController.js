@@ -98,7 +98,7 @@ module.exports = {
   },
 
   login: function(req, res) {
-    console.log(req.body);
+    console.log("req.body:",req.body);
     db.users.findOne({email: req.body.email}, function(err, user) {
     bcrypt.compare(req.body.password, user.password, function(err, hash) {
       if (hash) {
