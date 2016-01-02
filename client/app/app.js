@@ -1,6 +1,11 @@
-angular.module('citizenfleet',['$localStorage', '$rootscope','$state','$window'])
-.run(runBlock);
+// angular.module('citizenfleet',['$localStorage', '$rootScope','$state','$window'])
+// .run(runBlock);
 
-function runBlock ($localStorage, $rootscope, $state, $window) {
+// runBlock.$inject = ['$localStorage', '$rootScope','$state','$window'];
 
-}
+// function runBlock ($localStorage, $rootScope, $state, $window) {
+  
+//   $rootScope.$on('$stateChangeStart', function(evt,to,from,fromParams) {
+//   	$window.alert('sdlkajf');
+//   })
+// }
