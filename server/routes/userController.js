@@ -37,7 +37,7 @@ module.exports = {
     db.users.findOne({email: decoded.email}, function(err, user) {
       console.log(user);
       db.bills.insert({bill_id: req.body.bill_id, sponsor: req.body.sponsor,
-        title: req.body.official_title, introduced: req.body.introduced_on,
+        title: req.body.official_title, introduced: req.body.introduced_on, score: req.body.score,
         summary_short: req.body.summary_short, active: req.body.active, full_bill_href: req.body.urls.congress}, function(err, bill) {
           if (err) {console.log(err);}
       });
