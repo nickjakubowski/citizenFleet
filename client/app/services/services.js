@@ -56,7 +56,7 @@ angular.module('citizenfleet.services', [])
     
     var logout = function() {
       $window.localStorage.removeItem('isIt');
-      console.log($window.localStorage); 
+      console.log("should be localStorage:",$window.localStorage); 
     };
 
     var trackBill = function(bill, access) {

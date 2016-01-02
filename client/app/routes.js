@@ -24,7 +24,7 @@ angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.se
       controller: 'DashController'
     })
 
-    //sends user to login page by default and on get request to root
-  $urlRouterProvider.otherwise('dash');
+ 
+  $urlRouterProvider.otherwise('index');
 
 }]);

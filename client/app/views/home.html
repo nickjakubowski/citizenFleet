@@ -1,18 +1,18 @@
-<button name='logout' id='logout' class='ui button' ng-click='logout()'>Log Out</button><button name='dashboard' id='dash' class='ui button' ng-click='goToDash()'>Go to Dashboard</button><h3>Search for topics of interest</h3>
+<button name='logout' id='logout' class='ui button' ng-click='logout()'>Log out</button><button name='dashboard' id='dash' class='ui button' ng-click='goToDash()'>Go to Dashboard</button><h3>Search for topics of interest</h3>
 
 <form class='ui input'><input type='text' ng-model='searchparams'/><input type='submit' class='ui button'  ng-click='getBills(searchparams)'/></form>
 
 <p>Search for: {{searchparams}}</p>
 
-<p>Results:</p>
+<p>Results for: {{results}}</p>
 <div ng-repeat='bill in bills|orderBy:"introduced_on":true'>
 	<div class='bill ui raised segment'>
 		<p><b>ID: </b>{{bill.bill_id}}</p>
-		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}}</p>
+		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}} <a href={{bill.sponsor.contact_form}} target='_blank'>(contact)</a></p>
 		<p><b>Title: </b>{{bill.official_title}}</p>
 		<p><b>Introduced: </b>{{bill.introduced_on}}</p>
-		<p><b>Score: </b>{{bill.search.score}}</p>
-		<p><b>Full Bill: </b><a href='{{bill.last_version.urls.html}}' target='_blank'>{{bill.last_version.urls.html}}</a></p>
+		<p><b>Summary: </b>{{bill.summary_short}}</p>
+		<p><b>Full Bill: </b><a href='{{bill.urls.congress}}' target='_blank'>{{bill.urls.congress}}</a></p>
 		<button class='bill-button ui button' id='{{$index}}' ng-click='add(bill)'/>Track Bill</button>
 		<div>
 		</div>
