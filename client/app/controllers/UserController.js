@@ -31,4 +31,6 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
   };
   
 
+  console.log(UserController);
+
 }]);
