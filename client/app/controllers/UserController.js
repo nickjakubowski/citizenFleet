@@ -32,4 +32,6 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
     $state.go('dash');
   };
 
+  console.log(UserController);
+
 }]);
