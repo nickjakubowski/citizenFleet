@@ -2,21 +2,19 @@ div {
   padding: 5px;
 }
 
+/*body {
+  padding: 0 10px 10px 10px;
+  margin: 5px;
+}*/
+
 h1 {
   background-color: #ADD8E6;
   color: white;
-  margin: 10px;
-}
-
-body {
-  padding: 0 10px 10px 10px;
-  margin: 5px;
+  padding: 5px 0 5px 10px;
 }
 
 .bill {
-  border: 2px solid;
-  border-color: #9A3334;
-  margin-bottom: 10px;
+  margin: 0 10px 10px 10px;
   border-radius: 10px;
 }
 
