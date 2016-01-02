@@ -2,7 +2,8 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
 .controller('UserController', ['$scope', '$state', '$window', '$rootScope', 'DataService', function($scope, $state, $window, $rootScope, DataService) {
 
   $scope.bills;
-  $rootScope.userBills = [];
+  $scope.results;
+  // $rootScope.userBills = [];
 
   $scope.getBills = function(query) {
     DataService.fetchBills(query)
@@ -10,6 +11,7 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
         $scope.bills = JSON.parse(billsresult).results;
         console.log($scope.bills);
         $scope.searchparams = null;
+        $scope.results = query;
       })
   };
 

@@ -1,8 +1,6 @@
-angular.module('citizenfleet')
+angular.module('citizenfleet',['$localStorage', '$rootscope','$state','$window'])
 .run(runBlock);
 
-runBlock.$inject = ['$localStorage', '$rootscope','$state','$window'];
-
 function runBlock ($localStorage, $rootscope, $state, $window) {
-  
+
 }

@@ -18,13 +18,14 @@ module.exports = {
   console.log("SFAPI was queried with: ",req.body.data);
   var queryInfo = req.body.data;
   var options = {
-    url: 'https://congress.api.sunlightfoundation.com/bills/search?query=' + queryInfo + '&active=true',
+    url: 'https://congress.api.sunlightfoundation.com/bills/search?query="' + queryInfo + '"&fields=summary,sponsor,bill_id,official_title,introduced_on,score,urls,upcoming&active=true',
     headers: {
       'X-APIKEY': '6895f8ab90944228b8c8ea226ebdcfa1' 
     }
   }
   request(options, function(err, response) {
     if (err) { console.log("YO, THERE WAS AN ERROR!: ", err) }
+    console.log("returned bills from userController:", response);
     res.status(200).send(response);
   });
   },
