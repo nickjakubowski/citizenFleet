@@ -11,7 +11,7 @@
 		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}} <a href={{bill.sponsor.contact_form}} target='_blank'>(contact)</a></p>
 		<p><b>Title: </b>{{bill.official_title}}</p>
 		<p><b>Introduced: </b>{{bill.introduced_on}}</p>
-		<p><b>Summary: </b>{{bill.summary}}</p>
+		<p><b>Summary: </b>{{bill.summary_short}}</p>
 		<p><b>Full Bill: </b><a href='{{bill.urls.congress}}' target='_blank'>{{bill.urls.congress}}</a></p>
 		<button class='bill-button ui button' id='{{$index}}' ng-click='add(bill)'/>Track Bill</button>
 		<div>

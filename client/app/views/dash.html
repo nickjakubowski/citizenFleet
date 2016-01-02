@@ -6,10 +6,10 @@
 <div ng-repeat='bill in userBills track by $index'>
 	<div class='bill ui raised segment'>
 		<p><b>ID: </b>{{bill.bill_id}}</p>
-		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}}</p>
+		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}} <a href={{bill.sponsor.contact_form}} target='_blank'>(contact)</a></p><p></p>
 		<p><b>Title: </b>{{bill.title}}</p>
 		<p><b>Introduced: </b>{{(bill.introduced).slice(0,10)}}</p>
-		<p><b>Score: </b>{{bill.score}}</p>
+		<p><b>Summary: </b>{{bill.summary_short}}</p>
 		<p><b>Full Bill: </b><a href='{{bill.full_bill_href}}' target='_blank'>{{bill.full_bill_href}}</a></p>
 		<button name='remove' class='ui button bill-button' id='remove' ng-click='remove()'>Remove</button>
     </div>

@@ -18,28 +18,27 @@ module.exports = {
   console.log("SFAPI was queried with: ",req.body.data);
   var queryInfo = req.body.data;
   var options = {
-    url: 'https://congress.api.sunlightfoundation.com/bills/search?query="' + queryInfo + '"&fields=summary,sponsor,bill_id,official_title,introduced_on,score,urls,upcoming&active=true',
+    url: 'https://congress.api.sunlightfoundation.com/bills/search?query="' + queryInfo + '"&fields=summary_short,sponsor,bill_id,official_title,introduced_on,score,urls,upcoming&active=true',
     headers: {
       'X-APIKEY': '6895f8ab90944228b8c8ea226ebdcfa1' 
     }
   }
   request(options, function(err, response) {
     if (err) { console.log("YO, THERE WAS AN ERROR!: ", err) }
-    console.log("returned bills from userController:", response);
     res.status(200).send(response);
   });
   },
 
   addBill: function(req, res) {
     var token = req.headers['x-access-token'];
-    console.log('addBill request body:', req.body);
+    console.log('addBill request body:', req.body.sponsor);
     jwt.verify(token, secret, function(err, decoded) {
     if (err) {console.log("jwt error:", err)}
     db.users.findOne({email: decoded.email}, function(err, user) {
       console.log(user);
       db.bills.insert({bill_id: req.body.bill_id, sponsor: req.body.sponsor,
         title: req.body.official_title, introduced: req.body.introduced_on,
-        score: req.body.search.score, active: req.body.active, full_bill_href: req.body.last_version.urls.html}, function(err, bill) {
+        summary_short: req.body.summary_short, active: req.body.active, full_bill_href: req.body.urls.congress}, function(err, bill) {
           if (err) {console.log(err);}
       });
       db.user_bills.insert({user_id: user.id, bill_id: req.body.bill_id}, function(err, bill) {

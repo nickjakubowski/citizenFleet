@@ -12,6 +12,7 @@ angular.module('citizenfleet.dash', ['citizenfleet.services'])
       DataService.showTrackedBills(user)
       .then(function(bills) {
         $scope.userBills = bills;
+        console.log("userBills from DashController:",$scope.userBills);
       })
     };
 
