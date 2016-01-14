@@ -6,25 +6,33 @@ angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.se
     .state('signup', {
       url: '/signup',
       templateUrl: 'app/views/signup.html',
-      controller: 'AuthController'
+      controller: 'AuthController',
+      access: {protected: false},
+      logedIn: {blocked: true}
     })
     .state('login', {
       url: '/login',
       templateUrl: 'app/views/login.html',
-      controller: 'AuthController'
+      controller: 'AuthController',
+      access: {protected: false},
+      logedIn: {blocked: true}
     })
     .state('index', {
       url: '/index',
       templateUrl: 'app/views/home.html',
-      controller: 'UserController'
+      controller: 'UserController',
+      access: {protected: false},
+      logedIn: {blocked: false}
     })
     .state('dash', {
       url: '/dash',
       templateUrl: 'app/views/dash.html',
-      controller: 'DashController'
+      controller: 'DashController',
+      access: {protected: true},
+      logedIn: {blocked: false}
     })
 
     //sends user to login page by default and on get request to root
-  $urlRouterProvider.otherwise('index');
+  $urlRouterProvider.otherwise('login');
 
 }]);

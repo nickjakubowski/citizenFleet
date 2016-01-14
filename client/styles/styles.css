@@ -1,16 +1,35 @@
-div {
-  padding: 5px;
+body{
+ background-color: black;
+ color: white;
 }
 
-/*body {
-  padding: 0 10px 10px 10px;
-  margin: 5px;
-}*/
 
-h1 {
-  background-color: #ADD8E6;
+.main {
+  font-family: 'adequateextra_light', arial;
   color: white;
-  padding: 5px 0 5px 10px;
+  font-size: 2em;
+  padding: 10px 0 5px 10px;
+}
+
+h2,h3 {
+  color: white;
+}
+
+.offside {
+  margin: 20px;
+}
+
+.innerPage {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.dash {
+  background-color: white;
+  width: 100%;
+  height: 100%;
 }
 
 .bill {
@@ -23,8 +42,9 @@ p {
 }
 
 .input {
-  margin-bottom: 5px;
+  padding: 10px;
   margin-right: 5px;
+  padding-left: 5px;
 }
 
 button:focus {
@@ -48,6 +68,37 @@ input:focus {
   float: right;
 }
 
-#signup {
+/*#signup {
   float: right;
+}*/
+
+.submit {
+  padding-top: 25px;
+}
+
+.capitol {
+  background-image: url('../images/capitol-at-dusk.jpg');
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  background-repeat: no-repeat;
+}
+
+.field .splash {
+  color: white;
+}
+
+@font-face {
+    font-family: 'adequateextra_light';
+    src: url('../fonts/skinnyOne/adequate.extra-light-webfont.eot');
+    src: url('../fonts/skinnyOne/adequate.extra-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/skinnyOne/adequate.extra-light-webfont.woff2') format('woff2'),
+         url('../fonts/skinnyOne/adequate.extra-light-webfont.woff') format('woff'),
+         url('../fonts/skinnyOne/adequate.extra-light-webfont.ttf') format('truetype'),
+         url('../fonts/skinnyOne/adequate.extra-light-webfont.svg#adequateextra_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }

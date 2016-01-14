@@ -1,10 +1,11 @@
+<div class='dash'>
 <button name='logout' id='logout' class='ui button' ng-click='logout()'>Logout</button><button name='dashboard' id='dash' class='ui button' ng-click='goToSearch()'>Go to Search Page</button>
 <!-- <div>
   <P>Your reps:</p>
 </div> -->
 <p>Currently Tracked Bills:</p>
-<div ng-repeat='bill in userBills track by $index'>
-	<div class='bill ui raised segment'>
+<div class="bill" ng-repeat='bill in userBills track by $index'>
+	<div class='ui raised segment'>
 		<p><b>ID: </b>{{bill.bill_id}}</p>
 		<p><b>Sponsor: </b>{{bill.sponsor.title}}. {{bill.sponsor.first_name}} {{bill.sponsor.middle_name}} {{bill.sponsor.last_name}} <a href={{bill.sponsor.contact_form}} target='_blank'>(contact)</a></p><p></p>
 		<p><b>Title: </b>{{bill.title}}</p>
@@ -13,4 +14,5 @@
 		<p><b>Full Bill: </b><a href='{{bill.full_bill_href}}' target='_blank'>{{bill.full_bill_href}}</a></p>
 		<button name='remove' class='ui button bill-button' id='remove' ng-click='remove()'>Remove</button>
     </div>
+</div>
 </div>

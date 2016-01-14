@@ -12,6 +12,7 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
         console.log($scope.bills);
         $scope.searchparams = null;
         $scope.results = query;
+        $('.innerPage').css('position','static');
       })
   };
 
