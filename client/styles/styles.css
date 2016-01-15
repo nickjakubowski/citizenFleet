@@ -7,8 +7,8 @@ body{
 .main {
   font-family: 'adequateextra_light', arial;
   color: white;
-  font-size: 2em;
-  padding: 10px 0 5px 10px;
+  font-size: 6em;
+  padding: 10px 0 0 10px;
 }
 
 h2,h3 {
@@ -16,7 +16,7 @@ h2,h3 {
 }
 
 .offside {
-  margin: 20px;
+  margin-left: 20px;
 }
 
 .innerPage {
@@ -68,9 +68,13 @@ input:focus {
   float: right;
 }
 
-/*#signup {
-  float: right;
-}*/
+#signup {
+  margin: 2em;
+}
+
+.form {
+  width: 67%;
+}
 
 .submit {
   padding-top: 25px;
