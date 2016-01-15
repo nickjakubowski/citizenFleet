@@ -12,8 +12,12 @@ function runBlock ($rootScope, $state, $window) {
   	if (!token) {
       console.log("access", to.access.protected);
       if (to.access.protected) {
-        evt.preventDefault();
-        $state.go('login');
+        if(to === 'login') {
+          $state.go('login');
+        } else {
+          evt.preventDefault();
+          $state.go('login');
+        }
       }
   	} else if (token) {
       console.log(to.name);

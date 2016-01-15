@@ -11,12 +11,16 @@ body{
   padding: 10px 0 0 10px;
 }
 
-h2,h3 {
+/*.title {
   color: white;
-}
+}*/
 
 .offside {
   margin-left: 1.5em;
+}
+
+.submit {
+  text-align: center;
 }
 
 .innerPage {
@@ -90,9 +94,9 @@ input:focus {
   background-repeat: no-repeat;
 }
 
-.field .splash {
+/*.field .splash {
   color: white;
-}
+}*/
 
 @font-face {
     font-family: 'adequateextra_light';

@@ -1,21 +1,21 @@
 <div class='login capitol'>
 
   <div>
-  <h2 class='main'>CitizenFleet<span><button name='signup' id='signup' class='ui right floated button' ng-click='goToSignup()'>Sign Up</button></span></h2>
+  <h2 class='main title'>CitizenFleet<span><button name='signup' id='signup' class='ui right floated button' ng-click='goToSignup()'>Sign Up</button></span></h2>
   <div class="ui grey header"> 
   <h3 class="offside">Login</h3>
   </div>
   <div class="offside">
   <form class='ui form login'>
   	<div class="two fields centered">
-	  <div class="field">
-	  	<label class='splash'>Email</label>
+	  <div class="field top">
+	  	<label class='ui grey header'>Email</label>
 	    <input type='text' class='input' ng-model='user.email' placeholder='Email'>	
 	  <div class="field">
-	  	<label>Password</label>
+	  	<label class="ui grey header">Password</label>
 	    <input type='password' value='password' class='input' ng-model='user.password' placeholder='Password'>
     </div>
-    <div class='ui input'>
+    <div class='submit'>
     <input type='submit' class='ui button submit' ng-click='login(user)'/>
     </div>
   </div>
