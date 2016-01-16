@@ -22,7 +22,7 @@ function runBlock ($rootScope, $state, $window) {
       }
   	} else if (token) {
       console.log(to.name);
-      if (to.name === ('login' || 'signup')) {
+      if (to.name === 'login' || to.name === 'signup') {
         evt.preventDefault();
         $state.go('index');
        }
