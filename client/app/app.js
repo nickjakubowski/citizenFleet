@@ -5,11 +5,12 @@ runBlock.$inject = ['$rootScope','$state','$window'];
 
 function runBlock ($rootScope, $state, $window) {
   
-  var token = $window.localStorage['isIt'];
-  
   $rootScope.$on('$stateChangeStart', function(evt,to,toParams,from,fromParams) {
+    var token = $window.localStorage['isIt'];
   	console.log("to",to,"toParams", toParams,"from",from,"fromParams",fromParams);
   	if (!token) {
+      console.log("token, not var:", $window.localStorage['isIt'])
+      console.log("token:", token);
       console.log("access", to.access.protected);
       if (to.access.protected) {
         if(to === 'login') {

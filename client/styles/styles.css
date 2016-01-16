@@ -15,8 +15,20 @@ body{
   color: white;
 }*/
 
+h1 {
+  background-color: #4b74e4;
+  margin: 0;
+  padding: .4em;
+}
+
+h3 {
+  color: black;
+}
+
 .offside {
-  margin-left: 1.5em;
+  margin-left: 1.1em;
+  margin-top: .8em;
+  color: white;
 }
 
 .submit {
@@ -44,6 +56,7 @@ body{
 
 p {
   margin: 5px;
+  color: black;
 }
 
 .input {
@@ -64,16 +77,19 @@ input:focus {
   outline:none;
 }
 
-#logout {
-  margin-bottom: 15px;
-  float: right;
+.logout {
+  margin: 2em;
 }
 
 #login {
-  float: right;
+  margin: 2em;
 }
 
 #signup {
+  margin: 2em;
+}
+
+.corner-button {
   margin: 2em;
 }
 
