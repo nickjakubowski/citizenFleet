@@ -77,8 +77,12 @@ input:focus {
   outline:none;
 }
 
-.logout {
-  margin: 2em;
+#logout {
+  margin: 1em;
+}
+
+#dash {
+  margin: 1em;
 }
 
 #login {
@@ -99,6 +103,11 @@ input:focus {
 
 .submit {
   padding-top: 25px;
+}
+
+.pad-left {
+  margin: .5em;
+  margin-top: .1em
 }
 
 .capitol {
