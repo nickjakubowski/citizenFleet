@@ -1,39 +1,31 @@
+angular.module('citizenfleet')
+.run(runBlock);
 
-//alternative routing
+runBlock.$inject = ['$rootScope','$state','$window'];
 
-// angular.module('citizenfleet')
-// .run(runBlock);
-
-// runBlock.$inject = ['$rootScope', '$state', '$window'];
-
-// function runBlock($rootScope, $state, $window) {
-
-//   var token = localStorage['isIt'];
-
-//   if (!token) {
-//   	$state.go('login');
-//   }
-
-//   $rootScope.$on('$stateChangeStart', 
-//   function(evt, toState, toParams, fromState, fromParams) {
-//   	if (!token && fromState !== 'login') {
-//      $state.go('login');
-//     }
-//   })
-// };
-
-
-
-
-// angular.module('citizenfleet',['$localStorage', '$rootScope','$state','$window'])
-// .run(runBlock);
-
-// runBlock.$inject = ['$localStorage', '$rootScope','$state','$window'];
-
-// function runBlock ($localStorage, $rootScope, $state, $window) {
+function runBlock ($rootScope, $state, $window) {
   
-//   $rootScope.$on('$stateChangeStart', function(evt,to,from,fromParams) {
-//   	$window.alert('sdlkajf');
-//   })
-// }
-
+  $rootScope.$on('$stateChangeStart', function(evt,to,toParams,from,fromParams) {
+    var token = $window.localStorage['isIt'];
+  	console.log("to",to,"toParams", toParams,"from",from,"fromParams",fromParams);
+  	if (!token) {
+      console.log("token, not var:", $window.localStorage['isIt'])
+      console.log("token:", token);
+      console.log("access", to.access.protected);
+      if (to.access.protected) {
+        if(to === 'login') {
+          $state.go('login');
+        } else {
+          evt.preventDefault();
+          $state.go('login');
+        }
+      }
+  	} else if (token) {
+      console.log(to.name);
+      if (to.name === 'login' || to.name === 'signup') {
+        evt.preventDefault();
+        $state.go('index');
+       }
+    }
+  })
+};

@@ -1,10 +1,19 @@
-<div class='signup'>
-  <button name='login' id='login' class='ui button' ng-click='goToLogin()'>Log In</button>
+<div class='signup capitol'>
+
+  <div>
+   <h2 class='main title'>CitizenFleet<span>
+  <button name='login' id='login' class='ui right floated button' ng-click='goToLogin()'>Log In</button></span></h2>
+  <div class='offside'>
   <h2>Welcome To CitizenFleet</h2>
-  <h3>Sign up to start tracking bills</h3>
+  <h3 class='offside'>Sign up to start tracking bills</h3>
+  </div class='offside'>
   <form class='ui input'>
+    <div class='field'>
     <input type='text' ng-model='user.firstname' placeholder='First Name'/>
+    </div>
+    <div class='field'>
     <input type='text' ng-model='user.lastname' placeholder='Last Name'/>
+  </div>
     <input type='text' ng-model='user.email' placeholder='Email'/>
      <input type='password' ng-model='user.password' placeholder='Password'/>
     <input type='submit' class='ui button' ng-click='signup(user)'/>
