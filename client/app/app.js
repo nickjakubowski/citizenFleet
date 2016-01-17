@@ -7,7 +7,6 @@ function runBlock ($rootScope, $state, $window) {
   
   $rootScope.$on('$stateChangeStart', function(evt,to,toParams,from,fromParams) {
     var token = $window.localStorage['isIt'];
-  	console.log("to",to,"toParams", toParams,"from",from,"fromParams",fromParams);
   	if (!token) {
       if (to.access.protected) {
         if(to === 'login') {

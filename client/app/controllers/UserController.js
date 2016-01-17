@@ -9,7 +9,6 @@ angular.module('citizenfleet.home', ['citizenfleet.services'])
     DataService.fetchBills(query)
       .then(function(billsresult) {
         $scope.bills = JSON.parse(billsresult).results;
-        console.log($scope.bills);
         $scope.searchparams = null;
         $scope.results = query;
         $('.innerPage').css('position','static');

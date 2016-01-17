@@ -13,7 +13,6 @@ angular.module('citizenfleet.signup', ['citizenfleet.services'])
     
     $scope.signup = function(user) {
       $scope.user = user.email;
-      console.log($scope.user);
       DataService.signUp(user)
         .then(function(resp) {
           //cannot read prop 'status' of undefined
