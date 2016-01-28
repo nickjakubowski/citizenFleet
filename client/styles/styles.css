@@ -11,10 +11,6 @@ body{
   padding: 10px 0 0 10px;
 }
 
-/*.title {
-  color: white;
-}*/
-
 h1 {
   background-color: #4b74e4;
   margin: 0;
@@ -118,6 +114,13 @@ input:focus {
   position: absolute;
 
   background-repeat: no-repeat;
+}
+
+.footer {
+  position: fixed;
+  bottom: 1em;
+  left: 50%;
+  margin-left: -3em;
 }
 
 /*.field .splash {
