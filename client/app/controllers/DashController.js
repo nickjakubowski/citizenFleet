@@ -37,8 +37,7 @@ angular.module('citizenfleet.dash', ['citizenfleet.services'])
       $scope.userBills.splice(this.$index, 1); 
     };
     
-    //this is also in user controller can be
-    //refactored for DRY
+    
     $scope.logout = function() {
       DataService.logout(); 
       $state.go('login');

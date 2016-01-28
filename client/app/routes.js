@@ -32,7 +32,7 @@ angular.module('citizenfleet', ['ui.router','citizenfleet.home','citizenfleet.se
       logedIn: {blocked: false}
     })
 
-    //sends user to login page by default and on get request to root
+  //sends user to login page by default and on get request to root
   $urlRouterProvider.otherwise('login');
 
 

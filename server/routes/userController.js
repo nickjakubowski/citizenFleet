@@ -26,7 +26,7 @@ module.exports = {
     })
   },
 
-  //requires string to send query to API
+  
   findBills: function(req, res) {
   console.log("SFAPI was queried with: ",req.body.data);
   var queryInfo = req.body.data;

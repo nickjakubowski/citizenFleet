@@ -40,7 +40,7 @@ angular.module('citizenfleet.services', [])
       })
     };
 
-    //Sends the input parameters to the server in order to generate
+    //Sends the input parameters to the server to generate
     //a query request to the Sunlight Foundation API
     var fetchBills = function(query) {
       var obj = {data: query}
